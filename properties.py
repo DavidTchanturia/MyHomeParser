@@ -1,6 +1,8 @@
-from database_manager import insert_data
+from database_manager import DatabaseManager
 import datetime
+from logger import logger
 
+db_manager = DatabaseManager()
 
 class Property:
     def __init__(self, seller_name, seller_number, property_type, priceUSD, post_date, address, post_id):
@@ -52,6 +54,22 @@ class Property:
             self.seller_name = None
 
     def save_to_database(self):
-        """simply takes the property object and using the insert_data from database_manager, inserts it"""
-        insert_data(self.seller_name, self.seller_number, self.property_type, self.priceUSD, self.post_date,
-                    self.address, self.post_id)
+        """simple insertion to the database"""
+        mydb, cursor = db_manager.connect_to_database()
+        insert_query = "INSERT INTO properties (seller_name, seller_number, property_type, priceUSD, post_date, address, post_id) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+
+        # Create a tuple with the data to be inserted
+        data = (self.seller_name, self.seller_number, self.property_type, self.priceUSD,
+                self.post_date, self.address, self.post_id)
+
+        try:
+            # Execute the query with the data
+            cursor.execute(insert_query, data)
+            mydb.commit()
+            logger.info(f'post with id: {self.post_id}, inserted into database')
+        except Exception as e:
+            logger.error(f'Error: {e}')
+            mydb.rollback()
+        finally:
+            cursor.close()
+            mydb.close()
