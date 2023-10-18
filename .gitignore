@@ -36,5 +36,3 @@ ENV/
 
 # Exclude the macOS-specific .DS_Store files
 .DS_Store
-
-/Script/
