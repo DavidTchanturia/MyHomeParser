@@ -1,5 +1,5 @@
 # Myhome.ge parser
-## Using beautiful soup, a task for Sweeft-making science
+## Using beautiful soup, a task for Making Science - Sweeft
 
 This is a pipeline design that parses $${\color{green}myhome.ge}$$, Georgian real estate website. The program parses information about selling properties in Tbilisi. The info that you will be getting:
 - seller name
