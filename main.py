@@ -3,7 +3,7 @@ from properties import Property
 from database_manager import DatabaseManager
 from logger import logger
 
-page_number = 5
+page_number = 1
 db_manager = DatabaseManager()
 db_manager.create_tables() #create if does not exist
 last_updated_date = db_manager.last_date_updated() #last updated date
