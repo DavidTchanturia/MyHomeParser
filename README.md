@@ -29,18 +29,20 @@ Program is designed to run once a day and update existing database to keep up to
 
 ## Installation
 
-start by downloading project from github. first change the variables to connect to your schema on the local machine. 
+start by downloading project from github. first change the variables in the database managment class to connect to your schema on the local machine. 
 
 ```
-connection_pool = pooling.MySQLConnectionPool(
-    pool_name="myhome_pool",
-    pool_size=7,
-    host='localhost',
-    user='root',
-    password='password_SQL',
-    port='3306',
-    database='myhome'
-)
+    def __init__(self, host='localhost', user='root', password='password_SQL', port='3306', database='myhome', pool_size=7):
+        # Get a connection from the pool
+        self.connection_pool = pooling.MySQLConnectionPool(
+            pool_name="myhome_pool",
+            pool_size=pool_size,
+            host=host,
+            user=user,
+            password=password,
+            port=port,
+            database=database
+        )
 ```
 
 In the github repository you will find sql file as well, use it to seed the database so that you do not have to wait for it to get all the old information from the website. Database contains posts including 17th Octomber and earlier.
