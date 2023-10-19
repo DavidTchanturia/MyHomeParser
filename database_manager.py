@@ -106,3 +106,4 @@ class DatabaseManager:
             return last_updated_date[0]
         else:
             return None
+

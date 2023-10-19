@@ -1,7 +1,7 @@
 # Myhome.ge parser
 ## Using beautiful soup, a task for Making Science - Sweeft
 
-This is a pipeline design that parses $${\color{green}myhome.ge}$$, Georgian real estate website. The program parses information about selling properties in Tbilisi. The info that you will be getting:
+This is a pipeline design that parses $${\color{green}myhome.ge}$$ Georgian real estate website. The program parses information about selling properties in Tbilisi. The info that you will be getting:
 - seller name
 - seller number
 - property price
@@ -43,7 +43,7 @@ connection_pool = pooling.MySQLConnectionPool(
 )
 ```
 
-In the github repository you will find sql file as well, use it to seed the database so that you do not have to wait for it to get all the old information from the website as well. Database contains posts including 17th Octomber and earlier.
+In the github repository you will find sql file as well, use it to seed the database so that you do not have to wait for it to get all the old information from the website. Database contains posts including 17th Octomber and earlier.
 
 ```
 mysql -u username -p
@@ -51,9 +51,10 @@ USE your_schema_name
 source properties_table_dump.sql
 ```
 
-To schedule the program to run at the end of each day, on linux use Cron. This will run the main.py every day at 23:50 making sure to include newly addade data to the database.
+To schedule the program to run at the end of each day, on linux use Cron. This will run the main.py every day at 23:40 making sure to include newly addade data to the database.
+Note that you need to use a full path of main.py instead of this /MyHomeParser/main.py, for the command to work.
 ```
-to do -- add a command here
+40 23 * * * /MyHomeParser/main.py >/dev/null 2>&1
 ```
 
 ## Visualisation
