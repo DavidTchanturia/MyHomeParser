@@ -28,8 +28,13 @@ Program is designed to run once a day and update existing database to keep up to
 
 
 ## Installation
+After cloning the project, in the terminal use this command to install the requred libraries:
 
-start by downloading project from github. first change the variables in the database managment class to connect to your schema on the local machine. 
+```
+pip3 install -r requirements.txt
+```
+
+Proceed by changing the variables in the database managment class to connect to your schema on the local machine. 
 
 ```
     def __init__(self, host='localhost', user='root', password='password_SQL', port='3306', database='myhome', pool_size=7):
