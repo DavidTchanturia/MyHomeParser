@@ -58,7 +58,7 @@ USE your_schema_name
 source properties_table_dump.sql
 ```
 
-To schedule the program to run at the end of each day, on linux use Cron. This will run the main.py every day at 23:40 making sure to include newly addade data to the database.
+To schedule the program to run at the end of each day, on linux edit the crontab. This will run the main.py every day at 23:40 making sure to include newly addade data to the database.
 Note that you need to use a full path of main.py instead of this /MyHomeParser/main.py, for the command to work. please also correctly specify a path to your python3 interpreter.
 ```
 40 23 * * * /usr/bin/python3 /path/to/your/main.py >/dev/null 2>&1
